@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /Sohaib-PHP/
+
+# التأكد من عدم وجود مشاكل في المسارات
+Options -MultiViews
+
+# إذا كان الملف موجودًا بالفعل - لا تعيد توجيهه
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# توجيه كل الطلبات غير الموجودة إلى index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# رسالة خطأ 404 مخصصة
+ErrorDocument 404 /Sohaib-PHP/index.php 
